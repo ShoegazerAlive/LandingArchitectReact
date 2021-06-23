@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+    function longestWord(arr){
+        return arr.slice().sort((a,b) => {
+            return b.length - a.length;
+        })[0]
+    }
+        function cajaTexto(arr){
+            let stringfinal = '';
+            let palabra = longestWord(arr);
+            let asterisco = '*'.repeat(palabra.length + 4);
+            stringfinal += asterisco + '\n';
+            
+            for(let i = 0; i < arr.length; i++){
+                if(arr[i].length < palabra.length){
+                    let sub = palabra.length - arr[i].length;
+                    let espacios = ' '.repeat(sub);
+                    stringfinal += `* ${arr[i]}${espacios} *\n`;
+                } else{
+                    stringfinal += `* ${arr[i]} *\n`;
+                }
+            }
+            stringfinal += asterisco;
+            console.log(stringfinal)
+        }
+        console.log(cajaTexto(['Hello', 'world', 'in', 'a', 'frame']))
+  
+    
+
+    </script>
+</body>
+</html>
